@@ -36,7 +36,5 @@ func main() {
 
 	d := newGlusterfsDriver(*root, *restAddress, *gfsBase, servers)
 	h := volume.NewHandler(d)
-	u, _ = user.Lookup("root")
-	gid = u.Gid
-	fmt.Println(h.ServeUnix("glusterfs", gid))
+	fmt.Println(h.ServeUnix("glusterfs", 0))
 }
